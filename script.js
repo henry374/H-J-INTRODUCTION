@@ -1,56 +1,51 @@
-let pledges = JSON.parse(localStorage.getItem('pledges')) || [];
+let pledges = JSON.parse(localStorage.getItem('hj_pledges') || '[]');
+let total = 0;
 
-function addPledge() {
-    let name = document.getElementById('pName').value;
-    let amount = document.getElementById('pAmount').value;
-    let status = document.getElementById('pStatus').value;
-
-    if(name == "" || amount == "") {
-        alert("Please fill name and amount");
-        return;
-    }
-
-    pledges.push({name: name, amount: Number(amount), status: status});
-    localStorage.setItem('pledges', JSON.stringify(pledges));
-    
-    document.getElementById('pName').value = "";
-    document.getElementById('pAmount').value = "";
-    
-    showPledges();
+function addPledge(){
+  const name = document.getElementById('nameInput').value.trim();
+  const amount = parseInt(document.getElementById('amountInput').value);
+  const message = document.getElementById('messageInput').value.trim();
+  
+  if(!name || !amount){
+    alert('Please enter name and amount');
+    return;
+  }
+  
+  pledges.push({name, amount, message, date: new Date().toLocaleDateString()});
+  localStorage.setItem('hj_pledges', JSON.stringify(pledges));
+  
+  document.getElementById('nameInput').value = '';
+  document.getElementById('amountInput').value = '';
+  document.getElementById('messageInput').value = '';
+  
+  renderPledges();
 }
 
-function showPledges() {
-    let table = document.getElementById('pledgeTable');
-    let total = 0;
-    let paid = 0;
-    table.innerHTML = "";
-
-    pledges.forEach((p, index) => {
-        total += p.amount;
-        if(p.status == "Paid") paid += p.amount;
-        
-        table.innerHTML += `
-            <tr>
-                <td>${p.name}</td>
-                <td>${p.amount.toLocaleString()} UGX</td>
-                <td><span class="badge ${p.status}">${p.status}</span></td>
-                <td><button onclick="removePledge(${index})" class="del">X</button></td>
-            </tr>
-        `;
-    });
-
-    document.getElementById('total').innerText = total.toLocaleString() + " UGX";
-    document.getElementById('paid').innerText = paid.toLocaleString() + " UGX";
-    document.getElementById('balance').innerText = (total - paid).toLocaleString() + " UGX";
+function renderPledges(){
+  const list = document.getElementById('pledgeList');
+  const totalEl = document.getElementById('totalAmount');
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  
+  list.innerHTML = '';
+  total = 0;
+  
+  pledges.forEach(p => {
+    total += p.amount;
+    const div = document.createElement('div');
+    div.className = 'pledge-item';
+    div.innerHTML = `<span>${p.name} ${p.message ? '- ' + p.message : ''}</span><span>UGX ${p.amount.toLocaleString()}</span>`;
+    list.appendChild(div);
+  });
+  
+  totalEl.textContent = `UGX ${total.toLocaleString()}`;
+  
+  // WHATSAPP FIX - PUT YOUR NUMBER HERE
+  const yourNumber = '256700000000'; // <-- CHANGE THIS to your WhatsApp number! Example: 256771234567
+  const text = `Hello Henry & Joan! I have pledged UGX ${total.toLocaleString()} for H&J Introduction on 6th Dec. Total pledges list: ${pledges.map(p=>p.name+': '+p.amount).join(', ')}. Blessings!`;
+  const whatsappLink = `https://wa.me/${yourNumber}?text=${encodeURIComponent(text)}`;
+  
+  whatsappBtn.href = whatsappLink;
+  whatsappBtn.textContent = total > 0 ? `Confirm UGX ${total.toLocaleString()} via WhatsApp →` : 'Add pledge first, then WhatsApp';
 }
 
-function removePledge(index) {
-    if(confirm("Delete this pledge?")) {
-        pledges.splice(index, 1);
-        localStorage.setItem('pledges', JSON.stringify(pledges));
-        showPledges();
-    }
-}
-
-// Load on start
-showPledges();
+renderPledges();
