@@ -43,3 +43,15 @@ button:hover{background:#fff}
 .btn-whatsapp{display:block;background:#25D366;color:white;text-align:center;padding:14px;text-decoration:none;margin-top:16px;font-size:12px;letter-spacing:0.1em}
 footer{text-align:center;padding:60px 0 0;font-size:11px;letter-spacing:0.2em;color:var(--stone);text-transform:uppercase}
 @media(max-width:600px){.hero h1{font-size:64px}.grid-2{grid-template-columns:1fr;gap:20px}.meta{flex-direction:column;gap:20px}.form-row{grid-template-columns:1fr}}
+.hero-sub {
+  color: black !important;
+  font-weight: bold !important;
+}
+.intro-subtitle {
+  color: black !important;
+  font-weight: bold !important;
+}
+.venue-label {
+  color: black !important;
+  font-weight: bold !important;
+}
