@@ -1,77 +1,38 @@
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #fff8e1 0%, #ffe082 100%);
-  color: #3e2723;
-  line-height: 1.6;
+:root{
+ --paper:#fdfbf7;
+ --ink:#1a1a1a;
+ --stone:#8c857b;
+ --line:#e8e2d9;
+ --accent:#8b5e34;
 }
-.container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-}
-.header {
-  text-align: center;
-  background: linear-gradient(135deg, #4e342e 0%, #000000 100%);
-  color: #ffca28;
-  padding: 40px 20px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-.header h1 { font-size: 2.5em; margin-bottom: 10px; }
-.header p { color: white; font-size: 1.1em; }
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  border-left: 5px solid #ffca28;
-}
-.card h2 { color: #4e342e; margin-bottom: 15px; }
-.btn-whatsapp {
-  display: block;
-  background: #25D366;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2em;
-  margin: 10px 0;
-}
-.btn-whatsapp:hover { background: #128C7E; }
-input, button {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 1em;
-}
-button {
-  background: #4e342e;
-  color: #ffca28;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-button:hover { background: #000; }
-.pledge-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-}
-.total-box {
-  background: #4e342e;
-  color: #ffca28;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 1.3em;
-  font-weight: bold;
-  margin-top: 15px;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:'Inter', sans-serif; -webkit-font-smoothing: antialiased;}
+.page{max-width:800px;margin:0 auto;padding:0 24px 60px}
+nav{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--stone);text-align:center;padding:28px 0;border-bottom:1px solid var(--line)}
+.hero{text-align:center;padding:80px 0 60px;border-bottom:1px solid var(--line)}
+.hero-line{font-family:'Cormorant Garamond', serif;font-style:italic;font-size:20px;color:var(--stone);margin-bottom:16px}
+.hero h1{font-family:'Cormorant Garamond', serif;font-size:96px;font-weight:300;letter-spacing:-0.02em;line-height:0.9}
+.hero h1 span{font-style:italic;font-weight:300;color:var(--accent)}
+.hero-sub{margin-top:20px;letter-spacing:0.2em;text-transform:uppercase;font-size:12px;color:var(--stone)}
+.meta{display:flex;justify-content:center;gap:80px;margin-top:50px;text-align:center}
+.meta small{font-size:9px;letter-spacing:0.3em;color:var(--stone)}
+.meta div{font-size:14px;line-height:1.6}
+.card{padding:40px 0;border-bottom:1px solid var(--line)}
+.card h2{font-family:'Cormorant Garamond', serif;font-size:28px;font-weight:400;margin-bottom:16px}
+.card p{font-size:15px;line-height:1.8;color:#4a4a4a;max-width:600px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.btn-outline{display:inline-block;margin-top:16px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:4px;text-decoration:none;color:var(--ink)}
+.card.dark{background:#111;color:#fdfbf7;margin:40px -24px 0;padding:40px 24px;border:none}
+.card.dark h2{color:#fdfbf7}
+.muted{color:var(--stone);font-size:13px;margin-bottom:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input{background:transparent;border:1px solid #333;color:white;padding:14px;border-radius:2px;font-family:'Inter';}
+input::placeholder{color:#666}
+button{background:var(--paper);color:#111;border:none;padding:14px;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;margin-top:12px}
+button:hover{background:#fff}
+#pledgeList{margin-top:24px}
+.pledge-item{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #222;font-size:14px}
+.total-box{margin-top:24px;padding-top:24px;border-top:1px solid #222;font-family:'Cormorant Garamond';font-size:22px}
+.btn-whatsapp{display:block;background:#25D366;color:white;text-align:center;padding:14px;text-decoration:none;margin-top:16px;font-size:12px;letter-spacing:0.1em}
+footer{text-align:center;padding:60px 0 0;font-size:11px;letter-spacing:0.2em;color:var(--stone);text-transform:uppercase}
+@media(max-width:600px){.hero h1{font-size:64px}.grid-2{grid-template-columns:1fr;gap:20px}.meta{flex-direction:column;gap:20px}.form-row{grid-template-columns:1fr}}

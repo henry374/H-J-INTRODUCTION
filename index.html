@@ -1,87 +1,64 @@
 <!DOCTYPE html>
-<html><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>H & J - Introduction Ceremony</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H & J | Introduction Ceremony</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
+<div class="page">
+  <nav>INTRODUCTION CEREMONY • ZANA • 2026</nav>
+  
+  <header class="hero">
+    <div class="hero-line">You are cordially invited to</div>
+    <h1>H <span>&</span> J</h1>
+    <div class="hero-sub">The Introduction of Henry & Joan</div>
+    <div class="meta">
+      <div><small>VENUE</small><br>Come Again Bar, Zana<br>Entebbe Road</div>
+      <div><small>DATE</small><br>Saturday, 6th December<br>2026 • 10:00 AM</div>
+    </div>
+  </header>
 
-<h1>Marriage Is A Beautiful Journey</h1>
-<h2>You Are Cordially Invited</h2>
+  <section class="card">
+    <h2>A Note From The Family</h2>
+    <p>With joyful hearts, we invite you to witness and bless the traditional introduction ceremony of our children. Your presence, prayers, and support mean the world to us as two families become one.</p>
+  </section>
 
-<p class="intro-text">
-With joyful hearts and grateful spirits, we humbly invite you to celebrate love, 
-family, and unity as we take the next step in our journey.
-</p>
+  <section class="card grid-2">
+    <div>
+      <h2>Location</h2>
+      <p>Come Again Bar, Zana<br>Just after Zana Roundabout, Entebbe Road<br>Ample parking & seating</p>
+      <a class="btn-outline" href="https://maps.google.com/?q=Come+Again+Bar+Zana" target="_blank">View on Google Maps →</a>
+    </div>
+    <div>
+      <h2>Dress Code</h2>
+      <p><strong>Traditional Elegance</strong><br>Gomesi, Kanzu, Mushanana, or Smart Formal. Colors: Burgundy, Cream & Gold.</p>
+    </div>
+  </section>
 
-<div class="names">
-H & J<br>
-<span>Introduction Ceremony (Kwanjula)</span>
+  <section class="card dark">
+    <h2>Blessings & Pledges</h2>
+    <p class="muted">For those who wish to support the ceremony preparations</p>
+    <div class="form-row">
+      <input id="nameInput" placeholder="Your Full Name">
+      <input id="amountInput" type="number" placeholder="Amount (UGX)">
+    </div>
+    <input id="messageInput" placeholder="Short blessing message (optional)">
+    <button onclick="addPledge()">Add Pledge</button>
+    <div id="pledgeList"></div>
+    <div class="total-box">Total Pledged: <span id="totalAmount">UGX 0</span></div>
+    <a id="whatsappBtn" class="btn-whatsapp" target="_blank">Confirm via WhatsApp</a>
+  </section>
+
+  <footer>With love • Henry & Joan's Families • Entebbe, Uganda</footer>
 </div>
-
-<p>
-It is with great honor and happiness that we invite our beloved family and friends 
-to join us as we officially introduce our families and seek blessings for our future together.
-Your presence, prayers, and support mean the world to us.
-</p>
-
-<h3>📍 Venue:</h3>
-<ul>
-  <li><strong>Come Again Bar & Restaurant</strong><br>
-      Zana, Opposite Soda Depot, Along Entebbe Road</li>
-  <li>Budget reading and pledges will be held at the venue</li>
-  <li>Come one, come all — Let's celebrate love together</li>
-</ul>
-
-<h3>💌 Your Support Is A Blessing:</h3>
-<p>
-As we prepare for this beautiful occasion, we welcome your prayers, 
-presence, and any contribution towards making this day memorable. 
-Every blessing counts.
-</p>
-
-<h3>Contact:</h3>
-<p>WhatsApp: +256 748 826 814<br>
-Location: Kampala, Uganda</p>
-
-<a href="https://wa.me/256748826814?text=Hello!%20I%20saw%20your%20Introduction%20invitation%20and%20I%20would%20love%20to%20support%20H%20%26%20J" class="whatsapp-btn">Send Your Blessings on WhatsApp</a>
-
-<p class="footer">With Love & Gratitude,<br><strong>H & J Family</strong></p>
-
-</div>
-<h2>💰 Pledge & Budget Tracker</h2>
-<p class="intro-text">For family use - track all contributions</p>
-
-<div class="stats">
-    <div class="stat-box"><span>Total Pledged</span><h3 id="total">0 UGX</h3></div>
-    <div class="stat-box green"><span>Total Paid</span><h3 id="paid">0 UGX</h3></div>
-    <div class="stat-box orange"><span>Balance</span><h3 id="balance">0 UGX</h3></div>
-</div>
-
-<div class="form">
-    <input type="text" id="pName" placeholder="Name e.g. Uncle Kato">
-    <input type="number" id="pAmount" placeholder="Amount e.g. 100000">
-    <select id="pStatus">
-        <option value="Pledged">Pledged</option>
-        <option value="Paid">Paid</option>
-    </select>
-    <button onclick="addPledge()" class="add-btn">Add Pledge</button>
-</div>
-
-<table>
-    <thead>
-        <tr><th>Name</th><th>Amount</th><th>Status</th><th></th></tr>
-    </thead>
-    <tbody id="pledgeTable"></tbody>
-</table>
-</div>
-
 <script src="script.js"></script>
 </body>
-
 </html>
+
 
 
 
